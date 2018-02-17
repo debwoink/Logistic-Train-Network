@@ -904,10 +904,11 @@ function NewScheduleRecord(stationName, condType, condComp, itemlist, countOverr
       local condFluid = nil
       if itemlist[i].type == "fluid" then
         condFluid = "fluid_count"
-        -- workaround for leaving with fluid residue, can time out trains
-        if condComp == "=" and countOverride == 0 then
-          waitEmpty = true
-        end
+        -- Disabled by redeemed2011 so as to keep fluid trains from timing out whenever an artillary wagon is part of the train. This logic change could be an option in the GUI however Optera prefers not to add it since it would further confuse the LTN user base and create more support work for the community.
+        -- -- workaround for leaving with fluid residue, can time out trains
+        -- if condComp == "=" and countOverride == 0 then
+        --   waitEmpty = true
+        -- end
       end
 
       -- make > into >=
